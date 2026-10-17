@@ -15,3 +15,7 @@ __pycache__/
 mlruns/
 outputs/
 *.pkl
+
+# SQLite & MLflow databases
+*.db
+mlflow.db
