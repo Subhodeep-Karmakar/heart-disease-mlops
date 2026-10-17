@@ -33,20 +33,18 @@ jobs:
     # 4. Linting Step (check for Python syntax errors and undefined names)
     - name: Lint Code with Flake8
       run: |
-        # Stop build if there are Python syntax errors or undefined names
         flake8 src tests --count --select=E9,F63,F7,F82 --show-source --statistics
-        # Exit-zero treats all other formatting warnings as non-fatal
         flake8 src tests --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    # 5. Automated Unit Tests Step
-    - name: Run Unit Tests with Pytest
-      run: |
-        python -m pytest -v
-
-    # 6. Automated Model Training Step
+    # 5. Automated Model Training Step
     - name: Train Models & Track Experiments
       run: |
         python src/train.py
+
+    # 6. Automated Unit Tests Step (validates newly trained model)
+    - name: Run Unit Tests with Pytest
+      run: |
+        python -m pytest -v
 
     # 7. Upload Workflow Artifacts (Model + Evaluation Plots)
     - name: Archive Model and Evaluation Artifacts

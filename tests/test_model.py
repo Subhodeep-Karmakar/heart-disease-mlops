@@ -11,6 +11,11 @@ import pandas as pd
 @pytest.fixture
 def loaded_pipeline():
     model_path = "models/best_model.pkl"
+    # If model hasn't been trained yet, train it automatically
+    if not os.path.exists(model_path):
+        from src.train import train_and_track_models
+        train_and_track_models()
+        
     assert os.path.exists(model_path), f"Model artifact not found at {model_path}"
     pipeline = joblib.load(model_path)
     return pipeline
