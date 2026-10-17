@@ -1,0 +1,17 @@
+# Virtual Environment
+venv/
+.env
+
+# Python Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Data & Models (we track raw script, not large artifacts if any)
+mlruns/
+outputs/
+*.pkl
