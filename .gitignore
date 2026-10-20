@@ -19,3 +19,6 @@ outputs/
 # SQLite & MLflow databases
 *.db
 mlflow.db
+# Word and PDF documents
+*.docx
+*.pdf
